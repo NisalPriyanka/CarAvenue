@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="630" pageHeight="842" columnWidth="590" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eb60ade6-e6ea-4adf-bc7a-2a3917d71c92">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="f5862b7a-86d0-464c-ab81-2fa013bfe297"/>
+	<subDataset name="Table Dataset 2" uuid="1692c4b9-cf65-42f6-8d36-1f37dcd60348"/>
+	<subDataset name="Rental" uuid="e91f9860-9d3f-4989-9fb1-ab4395c91510">
+		<queryString language="SQL">
+			<![CDATA[SELECT DISTINCT * FROM Rent, Customer WHERE Rent.customerNic = Customer.customerNic AND Rent.completed = 1;]]>
+		</queryString>
+		<field name="rentId" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="customerNic" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="customerName" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="vehicleNumber" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="startDateTime" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="endDateTime" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="deposit" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="rentalAmount" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT DISTINCT * FROM Rent, Customer WHERE Rent.customerNic = Customer.customerNic AND Rent.completed = 1;]]>
+	</queryString>
+	<field name="rentId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customerNic" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="startDateTime" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endDateTime" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="deposit" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rentalAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="deliveryCharges" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vehicleNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="durationDays" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="durationWeeks" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="durationMonths" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="completed" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="licenseNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customerName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="homeAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="officeAddress" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="homePhone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="officePhone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mobilePhone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="213" splitType="Stretch">
+			<staticText>
+				<reportElement x="184" y="0" width="406" height="50" uuid="de5f9cbe-a9ba-4585-a4c3-8311bb29cce3"/>
+				<textElement>
+					<font size="36" isBold="false"/>
+				</textElement>
+				<text><![CDATA[CarAvenue (Pvt) LTD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="55" width="406" height="24" uuid="3d56b3fd-f3b6-466b-ae25-8c1177a80b66"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[166, Makola South Makola]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="79" width="406" height="24" uuid="df6c08bc-5e04-4685-9321-1fda1cefdc4b"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[info@caravenue.lk /caravenuelanka@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="103" width="132" height="24" uuid="8e222a13-db55-4a18-a3fd-dd40d7b7f5cc"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[(0112)966 660]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="127" width="132" height="24" uuid="c574e539-7901-4045-8112-e3322358f7e4"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[0776 524 444]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="2" y="183" width="590" height="30" forecolor="#D0B48E" backcolor="#FF9900" uuid="f9b83ec5-2656-4f3d-a3c8-1d3bc8332eac"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="406" y="3" width="182" height="27" forecolor="#000000" backcolor="#FFFFFF" uuid="2deeb0e6-4b2f-448b-a0a5-f6ae565642d3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="15" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="3" y="0" width="209" height="169" uuid="5aa842bb-8450-4188-8550-5848d4759596"/>
+				<imageExpression><![CDATA["/Users/anushka/NetBeansProjects/Car Rental/src/carRental/logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="427" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table" x="3" y="0" width="587" height="427" uuid="896f8bb7-7524-4a14-a998-4035d6671833"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Rental" uuid="09e3be6b-4d2e-46a9-bece-25c55257a610">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="6fdd15d1-3412-45a5-b3a8-2499ae33b366">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="39a5b86a-240d-468d-a57d-6cf7dd6b8dbe"/>
+								<text><![CDATA[Rent Id]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="4aa701ee-1645-4ba6-8468-92707bc5893e"/>
+								<textFieldExpression><![CDATA[$F{rentId}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="cf977bce-8208-4ccf-88de-6b7566b15a41">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="09564ec9-0a76-49ca-8862-d24857e1a037"/>
+								<text><![CDATA[NIC]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="13155337-65da-4334-bebc-bc780696e87b"/>
+								<textFieldExpression><![CDATA[$F{customerNic}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2a25d58b-d1de-457e-be73-12f597d53b0e">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="338c16da-18ca-4a2d-adb8-939cf0740056"/>
+								<text><![CDATA[Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="8b6afb9c-5318-47ad-bc18-23512fe4d3f0"/>
+								<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6580c35a-8c38-4147-8bee-fd51ecee90e7">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="b6740378-c5a4-48ee-8092-c31aef36bec0"/>
+								<text><![CDATA[Vehicle]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a7fc19cf-6c59-429e-aacd-313cb01a4f4a"/>
+								<textFieldExpression><![CDATA[$F{vehicleNumber}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="7ab91b24-fc1c-49e4-9a35-32debd47dc01">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d246150a-c166-4395-9bbc-426f2d30107d"/>
+								<text><![CDATA[Start]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="670021dd-581e-44b0-8dfc-7d2dd8d633de"/>
+								<textFieldExpression><![CDATA[$F{startDateTime}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9d70d3dd-8d61-4430-941a-a253d916a1c2">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="80c970b5-d4c3-48f1-aa36-5dd3b63ecfb3"/>
+								<text><![CDATA[End]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="46fec52f-5aa9-4e9c-9240-df1ae34b58a0"/>
+								<textFieldExpression><![CDATA[$F{endDateTime}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="980bfe1d-31e2-4fc4-9a48-ad85768d54d3">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bdadc52b-4c45-4ab5-aa3f-273a0cee56bf"/>
+								<text><![CDATA[Deposit]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="bc636508-7e6d-4591-8b63-97b03c237bec"/>
+								<textFieldExpression><![CDATA[$F{deposit}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="cc9adab4-4f83-494a-99e2-584d6eff864f">
+						<jr:columnHeader height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="11de6dc1-8bc9-45a3-bab9-d8b6fcbf66ac"/>
+								<text><![CDATA[Rent]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="46227d6b-f2f0-42a7-ad1f-ab3b1098a58d"/>
+								<textFieldExpression><![CDATA[$F{rentalAmount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="89926df9-2754-4d08-bee0-bd0ba078d900"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="-1" width="590" height="30" forecolor="#D0B48E" backcolor="#000000" uuid="87df750e-fb11-4619-ab9b-11abfdad361f"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="3" y="5" width="197" height="24" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="25262dbc-a065-4bad-9b2a-c0f924a09977"/>
+					<textElement verticalAlignment="Middle">
+						<font size="15" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
